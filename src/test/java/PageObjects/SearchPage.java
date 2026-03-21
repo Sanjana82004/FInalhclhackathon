@@ -136,10 +136,8 @@ public class SearchPage extends basePage {
 	    }
 	 
 	    public void selectPromotion(String promotionName) {
-	        // Pehle Promotions section ko click karke expand karein
 	        wait.until(ExpectedConditions.elementToBeClickable(promotions)).click();
 	        
-	        // Dinamic locator for specific promotion checkbox label
 	        String promoXpath = "//label[contains(text(),'" + promotionName + "')]";
 	        WebElement promoOption = driver.findElement(By.xpath(promoXpath));
 	        
@@ -148,14 +146,10 @@ public class SearchPage extends basePage {
 
 	    
 	    public void setPriceRange(String min, String max) {
-	        // Price section expand karein
 	        clickPrice();
 	        
-	        // Min aur Max input fields ke locators (Standard Pepperfry structure ke hisab se)
 	        WebElement minPriceInput = driver.findElement(By.xpath("//input[@aria-label='Minimum Price'] | //input[@placeholder='Min']"));
 	        WebElement maxPriceInput = driver.findElement(By.xpath("//input[@aria-label='Maximum Price'] | //input[@placeholder='Max']"));
-	        
-	        // Purani value clear karke nayi value daalein
 	        minPriceInput.clear();
 	        minPriceInput.sendKeys(min);
 	        
@@ -163,29 +157,23 @@ public class SearchPage extends basePage {
 	        maxPriceInput.sendKeys(max);
 	    }
 
-	    public void setDimensions(String width, String height, String depth) {
-	        // Dimensions section expand karein
+	    public void setDimensions(String width, String height, String depth) {	        // Dimensions section expand karein
 	        clickDimensions();
 	        
-	        // Locators based on your screenshot's structure
 	        WebElement widthInput = driver.findElement(By.xpath("//div[text()='Width']/following-sibling::div//input"));
 	        WebElement heightInput = driver.findElement(By.xpath("//div[text()='Height']/following-sibling::div//input"));
 	        WebElement depthInput = driver.findElement(By.xpath("//div[text()='Depth']/following-sibling::div//input"));
 
-	        // Width set karein
 	        widthInput.clear();
 	        widthInput.sendKeys(width);
 	        
-	        // Height set karein
 	        heightInput.clear();
 	        heightInput.sendKeys(height);
 	        
-	        // Depth set karein
 	        depthInput.clear();
 	        depthInput.sendKeys(depth);
 	    }
 
-	    // ================== Product Methods ==================
 	    public void clickProductByIndex(int index) {
 	        if (index < 0 || index >= firstProduct.size()) {
 	            System.out.println("Invalid index: " + index + ". List size: " + firstProduct.size());
@@ -213,17 +201,11 @@ public class SearchPage extends basePage {
 	        return wait.until(ExpectedConditions.visibilityOf(firstProductBrandname)).getText();
 	    }
 
-//	    public String getFirstProductPrice() {
-//	        return wait.until(ExpectedConditions.visibilityOf(firstProductprice)).getText();
-//	    }
 
-	    // ================== Wait for Page Load ==================
 	    public void waitForPageLoad() {
-	        // Wait until document readyState is complete
 	        wait.until(driver -> ((JavascriptExecutor) driver)
 	                .executeScript("return document.readyState").equals("complete"));
 
-	        // Wait until first product is visible
 	        By firstProductLocator = By.xpath("//div[@class='image-cls-container ng-star-inserted']");
 	        wait.until(ExpectedConditions.visibilityOfElementLocated(firstProductLocator));
 	    }

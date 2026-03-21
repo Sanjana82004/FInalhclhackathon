@@ -116,4 +116,9 @@ public class HomePage extends basePage {
     public boolean isMenuDisplayed() {
         return menu.isDisplayed();
     }
+
+	public void navigateToSofasCategory() {
+		// TODO Auto-generated method stub
+		
+	}
 }

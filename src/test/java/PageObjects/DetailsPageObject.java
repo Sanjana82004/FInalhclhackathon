@@ -38,9 +38,13 @@ public class DetailsPageObject  extends basePage{
     @FindBy(xpath = "(//span[@class='text-lg ng-tns-c182-1']")
     WebElement originalMRP;
 
+<<<<<<< HEAD
     // Pincode Input
     @FindBy(xpath = "//input[@placeholder='Enter Pincode']")
     WebElement pincodeInput;
+=======
+
+>>>>>>> 507b00aa7c67991a2c5b6219bdcfd102eba66049
 
     // Locate Button
     @FindBy(xpath = "//span[@class='pincode-locate-txt text-md color-orange font-bold']")
@@ -166,4 +170,4 @@ public class DetailsPageObject  extends basePage{
          int expectedDiscount = ((mrpVal - priceVal) * 100) / mrpVal;
 		return false;
     }
-}
+

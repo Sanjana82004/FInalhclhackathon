@@ -225,5 +225,6 @@ public class SearchPage extends basePage {
 	    public List<WebElement> getAllProductPrices() {
 	        return firstProductprice;
 	    }
+}
 
-}  
+

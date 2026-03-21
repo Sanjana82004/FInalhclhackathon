@@ -1,44 +1,42 @@
 package PageObjects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends basePage {
 
-    Actions act; // used for advanced interaction
+    Actions act;
+    JavascriptExecutor js;
 
-    // constructor
     public HomePage(WebDriver driver) {
         super(driver);
         act = new Actions(driver);
+        js = (JavascriptExecutor) driver;
     }
 
-    //locators
-
+    // ---------------- Locators ----------------
     @FindBy(id = "search")
     WebElement searchBar;
-
-    @FindBy(xpath = "//img[@alt='profile icon']")
-    WebElement signUp;
-
-    @FindBy(xpath = "//img[@alt='studio icon']")
-    WebElement store;
-
-    @FindBy(xpath = "//img[@alt='wishlist icon']")
-    WebElement wishlist;
 
     @FindBy(xpath = "//img[@alt='cart icon']")
     WebElement cart;
 
+    @FindBy(xpath = "//img[@alt='wishlist icon']")
+    WebElement wishlist;
+
+    @FindBy(xpath = "//img[@alt='studio icon']")
+    WebElement store;
+
+    @FindBy(xpath = "//img[@alt='profile icon']")
+    WebElement signup;
+
     @FindBy(xpath = "//img[@alt='PepperfryLogo']")
     WebElement logo;
-
-    @FindBy(xpath = "//img[@alt='hamburger icon']")
-    WebElement menu;
 
     @FindBy(xpath = "//a[contains(text(),'Luxury')]")
     WebElement luxury;
@@ -49,71 +47,124 @@ public class HomePage extends basePage {
     @FindBy(xpath = "//a[normalize-space()='Wardrobes']")
     WebElement wardrobes;
 
-    //actions method
+    // Cookie popup button
+    By cookieCloseButton = By.xpath("//button[contains(text(),'Accept') or contains(text(),'Close')]");
+
+    // First product in search results
+    By firstProductLocator = By.xpath("(//a[contains(@href,'product')])[1]");
+
+    // Add to Cart button on product page
+    By addToCartLocator = By.xpath("//button[contains(text(),'ADD TO CART') or contains(text(),'Add to Cart')]");
+
+    // ---------------- Actions ----------------
+    public void handleCookiePopup() {
+        try {
+            WebElement cookieBtn = wait.until(driver -> driver.findElement(cookieCloseButton));
+            if (cookieBtn.isDisplayed() && cookieBtn.isEnabled()) {
+                js.executeScript("arguments[0].scrollIntoView(true);", cookieBtn);
+                cookieBtn.click();
+                System.out.println("Cookie popup closed successfully.");
+            }
+        } catch (Exception e) {
+            System.out.println("No cookie popup displayed.");
+        }
+    }
+
     public void searchProduct(String product) {
+        wait.until(driver -> searchBar.isDisplayed());
         searchBar.clear();
         searchBar.sendKeys(product);
         searchBar.sendKeys(Keys.ENTER);
     }
 
-    public void clickSignUp() {
-        signUp.click();
-    }
-
-    public void clickStore() {
-        store.click();
-    }
-
-    public void clickWishlist() {
-        wishlist.click();
-    }
-
     public void clickCart() {
+        wait.until(driver -> cart.isDisplayed() && cart.isEnabled());
+        js.executeScript("arguments[0].scrollIntoView(true);", cart);
         cart.click();
     }
 
-    //until menu is click
-    public void clickMenu() {
-        wait.until(ExpectedConditions.elementToBeClickable(menu)).click();
+    public void clickWishlist() {
+        wait.until(driver -> wishlist.isDisplayed() && wishlist.isEnabled());
+        wishlist.click();
     }
 
-    // wait before hover
+    public void clickStore() {
+        wait.until(driver -> store.isDisplayed() && store.isEnabled());
+        store.click();
+    }
+
+    public void clickSignup() {
+        wait.until(driver -> signup.isDisplayed() && signup.isEnabled());
+        signup.click();
+    }
+
+    public void clickFirstProduct() {
+        WebElement firstProduct = wait.until(driver -> driver.findElement(firstProductLocator));
+        js.executeScript("arguments[0].scrollIntoView(true);", firstProduct);
+        firstProduct.click();
+    }
+
+    public void clickAddToCart() {
+        WebElement addToCartButton = wait.until(driver -> driver.findElement(addToCartLocator));
+        js.executeScript("arguments[0].scrollIntoView(true);", addToCartButton);
+        addToCartButton.click();
+    }
+
+    // ---------------- Hover Actions ----------------
     public void hoverOnLuxury() {
-        wait.until(ExpectedConditions.visibilityOf(luxury));
+        wait.until(driver -> luxury.isDisplayed());
         act.moveToElement(luxury).perform();
     }
 
-    //wait before clicking submenu
     public void clickBedroom() {
-        wait.until(ExpectedConditions.elementToBeClickable(bedroom)).click();
+        wait.until(driver -> bedroom.isDisplayed() && bedroom.isEnabled());
+        bedroom.click();
     }
 
     public void clickWardrobes() {
-        wait.until(ExpectedConditions.elementToBeClickable(wardrobes)).click();
+        wait.until(driver -> wardrobes.isDisplayed() && wardrobes.isEnabled());
+        wardrobes.click();
     }
 
-    //validation method
-    public boolean isLogoDisplayed() {
-        return logo.isDisplayed();
-    }
-
-    public boolean isSignUpDisplayed() {
-        return signUp.isDisplayed();
-    }
-
-    public boolean isStoreDisplayed() {
-        return store.isDisplayed();
+    // ---------------- Validations ----------------
+    public boolean isCartDisplayed() {
+        return cart.isDisplayed();
     }
 
     public boolean isWishlistDisplayed() {
         return wishlist.isDisplayed();
     }
 
-    public boolean isCartDisplayed() {
-        return cart.isDisplayed();
+    public boolean isStoreDisplayed() {
+        return store.isDisplayed();
     }
 
-    public boolean isMenuDisplayed() {
-        return menu.isDisplayed();
+    public boolean isSignupDisplayed() {
+        return signup.isDisplayed();
+    }
+
+    public boolean isLogoDisplayed() {
+        return logo.isDisplayed();
+    }
+
+    // ---------------- Getters ----------------
+    public WebElement getBedroomElement() {
+        return bedroom;
+    }
+
+    public WebElement getWardrobesElement() {
+        return wardrobes;
+    }
+
+    public WebElement getCartElement() {
+        return cart;
+    }
+
+    public WebElement getFirstProductElement() {
+        return wait.until(driver -> driver.findElement(firstProductLocator));
+    }
+
+    public WebElement getAddToCartElement() {
+        return wait.until(driver -> driver.findElement(addToCartLocator));
     }
 }

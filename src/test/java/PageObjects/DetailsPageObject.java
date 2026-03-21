@@ -39,12 +39,18 @@ public class DetailsPageObject  extends basePage{
     WebElement originalMRP;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Pincode Input
     @FindBy(xpath = "//input[@placeholder='Enter Pincode']")
     WebElement pincodeInput;
 =======
 
 >>>>>>> 507b00aa7c67991a2c5b6219bdcfd102eba66049
+=======
+    // Pincode Input
+    @FindBy(xpath = "//input[@placeholder='Enter Pincode']")
+    WebElement pincodeInput;
+>>>>>>> 0a19e5ea39870568caf302bad3bf186625cfc1dc
 
     // Locate Button
     @FindBy(xpath = "//span[@class='pincode-locate-txt text-md color-orange font-bold']")
@@ -82,9 +88,7 @@ public class DetailsPageObject  extends basePage{
         return brandNameTop.getText();
     }
 
-    public String getBrandNameHeader() {
-        return brandNameHeader.getText();
-    }
+
 
     // Get Price
     public String getPrice() {

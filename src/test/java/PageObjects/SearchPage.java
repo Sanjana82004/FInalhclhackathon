@@ -22,7 +22,6 @@ public class SearchPage extends basePage {
 	        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    }
 
-	    // ================== Filter locators ==================
 	    @FindBy(xpath = "//span[contains(text(),'Color Swatch')]")
 	    WebElement colorsDropdown;
 
@@ -53,7 +52,6 @@ public class SearchPage extends basePage {
 	    @FindBy(xpath = "//span[normalize-space()='CLEAR ALL']")
 	    WebElement clearallbtn;
 
-	    // ================== Product locators ==================
 	    @FindBy(xpath = "//div[@class='image-cls-container ng-star-inserted']")
 	   List <WebElement> firstProduct;
 

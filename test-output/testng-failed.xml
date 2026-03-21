@@ -4,6 +4,7 @@
   <test thread-count="5" name="Default test(failed)">
     <classes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <class name="TestCases.TC_01_VerifyHomePage">
         <methods>
           <include name="tearDown"/>
@@ -34,3 +35,5 @@
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
+=======
+>>>>>>> 0a19e5ea39870568caf302bad3bf186625cfc1dc

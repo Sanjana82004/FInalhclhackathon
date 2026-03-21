@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -216,6 +217,9 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
         </test-method> <!-- verifyQuantityUpdate -->
         <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.TC_07_ProductAddedToCart@5bda8e08]" started-at="2026-03-21T14:50:18 IST" name="tearDown" finished-at="2026-03-21T14:50:19 IST" duration-ms="861" status="PASS">
 >>>>>>> 507b00aa7c67991a2c5b6219bdcfd102eba66049
+=======
+
+>>>>>>> 0a19e5ea39870568caf302bad3bf186625cfc1dc
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -167,4 +167,9 @@ public class HomePage extends basePage {
     public WebElement getAddToCartElement() {
         return wait.until(driver -> driver.findElement(addToCartLocator));
     }
+
+	public void navigateToSofasCategory() {
+		// TODO Auto-generated method stub
+		
+	}
 }

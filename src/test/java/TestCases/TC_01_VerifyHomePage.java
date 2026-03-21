@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -49,7 +50,8 @@ public class TC_01_VerifyHomePage extends BaseClass {
         driver.switchTo().window(newTab);
 
         // Navigate to Pepperfry
-        driver.get("https://www.pepperfry.com");
+        driver.get("https://www.pepper'"
+        		+ "fry.com");
 
         // Wait for page to load completely
         wait.until(webDriver -> ((JavascriptExecutor) webDriver)
@@ -58,7 +60,7 @@ public class TC_01_VerifyHomePage extends BaseClass {
         // Print page title
         System.out.println("Page title: " + driver.getTitle());
     }
-
+ 
     @AfterClass
     public void tearDown() {
         if (driver != null) {

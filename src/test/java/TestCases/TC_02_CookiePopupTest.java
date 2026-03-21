@@ -3,23 +3,15 @@ package TestCases;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TC_02_CookiePopupTest {
+public class TC_02_CookiePopupTest extends BaseClass{
 
     WebDriver driver; // class-level driver
 
-    @BeforeClass
-    public void setup() {
-        // Initialize ChromeDriver
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.pepperfry.com"); // Replace with actual URL
-    }
+   
 
     @Test
     public void verifyCookiePopupHandling() throws InterruptedException {
@@ -47,10 +39,5 @@ public class TC_02_CookiePopupTest {
         Assert.assertTrue(isBannerGone, "Cookie popup should be closed after accepting");
     }
 
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+   
     }
-}

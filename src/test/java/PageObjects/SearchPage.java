@@ -192,7 +192,7 @@ public class SearchPage extends basePage {
 	    }
 
 	    public String getFirstProductDetail() {
-	        return wait.until(ExpectedConditions.visibilityOf(firstProductName)).getText();
+	        return wait.until(ExpectedConditions.visibilityOf((WebElement) firstProductName)).getText();
 	    }
 
 	    public String getFirstProductBrandName() {

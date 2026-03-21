@@ -78,9 +78,7 @@ public class DetailsPageObject  extends basePage{
         return brandNameTop.getText();
     }
 
-    public String getBrandNameHeader() {
-        return brandNameHeader.getText();
-    }
+
 
     // Get Price
     public String getPrice() {
@@ -166,4 +164,4 @@ public class DetailsPageObject  extends basePage{
          int expectedDiscount = ((mrpVal - priceVal) * 100) / mrpVal;
 		return false;
     }
-}
+

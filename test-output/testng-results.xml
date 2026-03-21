@@ -2,34 +2,34 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-21T15:01:51 IST" name="Default suite" finished-at="2026-03-21T15:01:57 IST" duration-ms="6437">
+  <suite started-at="2026-03-21T16:16:09 IST" name="Default suite" finished-at="2026-03-21T16:16:18 IST" duration-ms="8699">
     <groups>
     </groups>
-    <test started-at="2026-03-21T15:01:51 IST" name="Default test" finished-at="2026-03-21T15:01:57 IST" duration-ms="6437">
+    <test started-at="2026-03-21T16:16:09 IST" name="Default test" finished-at="2026-03-21T16:16:18 IST" duration-ms="8699">
       <class name="TestCases.TC_03_VerifyNavigationTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@6aba2b86]" started-at="2026-03-21T15:01:51 IST" name="setup" finished-at="2026-03-21T15:01:53 IST" duration-ms="2591" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@7c729a55]" started-at="2026-03-21T16:16:09 IST" name="setup" finished-at="2026-03-21T16:16:11 IST" duration-ms="2270" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyNavigationToCategory()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@6aba2b86]" started-at="2026-03-21T15:01:54 IST" name="verifyNavigationToCategory" finished-at="2026-03-21T15:01:57 IST" duration-ms="3676" status="FAIL">
+        <test-method signature="verifyNavigationToCategory()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@7c729a55]" started-at="2026-03-21T16:16:11 IST" name="verifyNavigationToCategory" finished-at="2026-03-21T16:16:18 IST" duration-ms="6271" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
               <![CDATA[invalid session id
 Build info: version: '4.40.0', revision: 'b3333f1'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e5552fd7cbb38247784d3ea0d096fd6b, findElement {using=xpath, value=//a[contains(text(),'Luxury')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.81, chrome: {chromedriverVersion: 146.0.7680.153 (85fd829a1b2..., userDataDir: C:\Users\nazia\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55981}, goog:processID: 10212, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55981/devtoo..., se:cdpVersion: 146.0.7680.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e5552fd7cbb38247784d3ea0d096fd6b]]>
+Command: [4557840c1e3388c45de69b5360a3aaa9, findElement {value=//a[contains(text(),'Luxury')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.81, chrome: {chromedriverVersion: 146.0.7680.153 (85fd829a1b2..., userDataDir: C:\Users\nazia\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65427}, goog:processID: 15284, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65427/devtoo..., se:cdpVersion: 146.0.7680.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4557840c1e3388c45de69b5360a3aaa9]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: '4.40.0', revision: 'b3333f1'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [e5552fd7cbb38247784d3ea0d096fd6b, findElement {using=xpath, value=//a[contains(text(),'Luxury')]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.81, chrome: {chromedriverVersion: 146.0.7680.153 (85fd829a1b2..., userDataDir: C:\Users\nazia\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55981}, goog:processID: 10212, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55981/devtoo..., se:cdpVersion: 146.0.7680.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: e5552fd7cbb38247784d3ea0d096fd6b
+Command: [4557840c1e3388c45de69b5360a3aaa9, findElement {value=//a[contains(text(),'Luxury')], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 146.0.7680.81, chrome: {chromedriverVersion: 146.0.7680.153 (85fd829a1b2..., userDataDir: C:\Users\nazia\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65427}, goog:processID: 15284, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65427/devtoo..., se:cdpVersion: 146.0.7680.81, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4557840c1e3388c45de69b5360a3aaa9
 at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:142)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -80,7 +80,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyNavigationToCategory -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@6aba2b86]" started-at="2026-03-21T15:01:57 IST" name="tearDown" finished-at="2026-03-21T15:01:57 IST" duration-ms="43" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:TestCases.TC_03_VerifyNavigationTest@7c729a55]" started-at="2026-03-21T16:16:18 IST" name="tearDown" finished-at="2026-03-21T16:16:18 IST" duration-ms="51" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

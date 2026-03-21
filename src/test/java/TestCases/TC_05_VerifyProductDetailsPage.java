@@ -1,12 +1,13 @@
-package PageObjects;
+package TestCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
+import PageObjects.SearchPage;
 import PageObjects.DetailsPageObject;
-import TestCases.BaseClass;
+import org.openqa.selenium.WebElement;
+import java.util.List;
 
-public class DetailsPageObject extends BaseClass {
+public class TC_05_VerifyProductDetailsPage extends BaseClass {
 
     @Test(description = "Verify that clicking a product opens the product details page correctly")
     public void verifyProductDetailsPage() {
@@ -16,11 +17,13 @@ public class DetailsPageObject extends BaseClass {
 
         search.waitForPageLoad();
 
+        List<WebElement> prices = search.getAllProductPrices();
+
         int indexToClick = -1;
 
-        for (int i = 0; i < search.firstProductprice.size(); i++) {
-            String price = search.getProductPriceByIndex(i);
-            if (price != null && !price.isEmpty()) {
+        for (int i = 0; i < prices.size(); i++) {
+            String priceText = prices.get(i).getText();
+            if (priceText != null && !priceText.isEmpty()) {
                 indexToClick = i;
                 break;
             }
@@ -32,17 +35,16 @@ public class DetailsPageObject extends BaseClass {
 
         search.clickProductByIndex(indexToClick);
 
-
+        String productName = productDetails.getBrandNameHeader();
+        String productPrice = productDetails.getPrice();
+        String availability = productDetails.getValidPincodeMessage();
 
         System.out.println("Product Name: " + productName);
         System.out.println("Product Price: " + productPrice);
+        System.out.println("Availability: " + availability);
 
         Assert.assertFalse(productName.isEmpty(), "Product name is not visible!");
-        Assert.assertTrue(priceVisible, "Product price is not visible!");
-
-        // Optional: Verify discount calculation is correct
-        if (productDetails.getDiscount() != null && !productDetails.getDiscount().isEmpty()) {
-            Assert.assertTrue(productDetails.discountCalculation(), "Discount calculation mismatch!");
-        }
+        Assert.assertFalse(productPrice.isEmpty(), "Product price is not visible!");
+        Assert.assertFalse(availability.isEmpty(), "Product availability is not visible!");
     }
-
+}

@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCases.TC_04_VerifyApplyFilters">
+      <class name="TestCases.TC_05_VerifyProductDetailsPage">
         <methods>
           <include name="setup"/>
-          <include name="applyFilters"/>
+          <include name="verifyProductDetailsPage"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- TestCases.TC_04_VerifyApplyFilters -->
+      </class> <!-- TestCases.TC_05_VerifyProductDetailsPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

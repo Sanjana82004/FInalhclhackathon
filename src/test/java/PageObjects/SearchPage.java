@@ -63,8 +63,7 @@ public class SearchPage extends basePage {
 	    @FindBy(xpath = "//div[@class='product-brand text-xs color-secondary font-medium ng-star-inserted']")
 	    WebElement firstProductBrandname;
 
-	    @FindBy(xpath = "//span[@class='product-offer-price font-bold text-xl ng-star-inserted']")
-	    List<WebElement> firstProductprice;
+	    
 
 	    // ================== Filter Methods ==================
 	    public void clickBrand() {
@@ -237,6 +236,12 @@ public class SearchPage extends basePage {
 	        String price = firstProduct.get(index).findElement(By.cssSelector(".product-price")).getText();
 	        System.out.println("Product price at index " + index + ": " + price);
 	        return price;
+	    }
+	    
+	    @FindBy(xpath = "//span[@class='product-offer-price font-bold text-xl ng-star-inserted']")
+	    List<WebElement> firstProductprice;
+	    public List<WebElement> getAllProductPrices() {
+	        return firstProductprice;
 	    }
 
 }  

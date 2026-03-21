@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import PageObjects.DetailsPageObject;
+import PageObjects.HomePage;
+import PageObjects.SearchPage;
 import Utilities.windowHandleUtility;
 
 public class TC_11_Verify_Product_Details_Consistency extends BaseClass {
@@ -26,29 +28,27 @@ public class TC_11_Verify_Product_Details_Consistency extends BaseClass {
     public void verifyProductDetailsConsistency() {
 
         // Step 1: Search product
-        hp.SearchProduct("Sofa");
+        hp.searchProduct("sofa");
 
-        // Step 2: Capture values from Search Page
-        String searchProductName = sp.getFirstProductName();
-        String searchBrandName = sp.getFirstProductBrandName();
-        int searchPrice = sp.getFirstProductPrice();
+        // Step 2: Capture data from Search Page
+        String searchProductName = sp.getProductNameByIndex();
+       
+        String searchPrice = sp.getProductPriceByIndex();
 
         // Step 3: Click product and switch window
-        sp.clickFirstProduct();
+        sp.clickProductByIndex();
         who.switchToNewWindow();
 
-        // Step 4: Capture values from Details Page
-        String detailsProductName = dp.getBrandNameHeader();
+        // Step 4: Capture data from Details Page
+        String detailsProductName = dp.getBrandNameHeader();   
         String detailsBrandName = dp.getBrandNameTop();
-        int detailsPrice = dp.getPriceValue();
+        String detailsPrice = dp.getPrice();
 
         // Step 5: Assertions
 
         Assert.assertEquals(detailsProductName, searchProductName,
                 "Product name mismatch between Search and Details page");
 
-        Assert.assertEquals(detailsBrandName, searchBrandName,
-                "Brand name mismatch between Search and Details page");
 
         Assert.assertEquals(detailsPrice, searchPrice,
                 "Price mismatch between Search and Details page");

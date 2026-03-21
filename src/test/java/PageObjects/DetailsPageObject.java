@@ -151,7 +151,7 @@ public class DetailsPageObject  extends basePage{
     
     
     //validation methods
-    public boolean discountCalculation() {
+    public boolean isDiscountCorrect() {
     	
     	
     	    int priceVal=getPriceValue();
@@ -178,7 +178,18 @@ public class DetailsPageObject  extends basePage{
         return validPincodeMessage.getText().trim();
     }
     
-    
+    public boolean isValidPincodeMessageDisplayed() {
+
+        String actualMessage = getValidPincodeMessage();
+
+        return actualMessage.contains("Delivery FREE by");
+    }
+    public boolean isInvalidPincodeMessageDisplayed() {
+
+        String actualMessage = getInvalidPincodeMessage();
+
+        return actualMessage.toLowerCase().contains("valid pincode");
+    }
     
 
 

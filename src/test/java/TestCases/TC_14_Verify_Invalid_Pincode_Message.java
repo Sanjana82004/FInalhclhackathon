@@ -9,7 +9,7 @@ import PageObjects.HomePage;
 import PageObjects.SearchPage;
 import Utilities.windowHandleUtility;
 
-public class TC_12_Verify_Discount_Calculation extends BaseClass {
+public class TC_14_Verify_Invalid_Pincode_Message extends BaseClass {
 
     DetailsPageObject dp;
     SearchPage sp;
@@ -25,21 +25,23 @@ public class TC_12_Verify_Discount_Calculation extends BaseClass {
     }
 
     @Test
-    public void verifyDiscountCalculation() {
+    public void verifyInvalidPincodeMessage() {
 
-       
+        // Step 1: Search product
         hp.searchProduct("Sofa");
 
-        
+        // Step 2: Open product details
         sp.clickFirstProduct();
-
-       
         who.switchToNewWindow();
 
-        
+        // Step 3: Enter invalid pincode
+        dp.enterPincode("000000");   // Invalid pincode
+        dp.clickLocate();
+
+        // Step 4: Validate error message
         Assert.assertTrue(
-                dp.isDiscountCorrect(),
-                "Discount calculation is incorrect on product details page"
+                dp.isInvalidPincodeMessageDisplayed(),
+                "Invalid pincode message is not displayed correctly"
         );
     }
 }

@@ -5,8 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import PageObjects.DetailsPageObject;
-import PageObjects.SearchPage;
 import PageObjects.HomePage;
+import PageObjects.SearchPage;
 import Utilities.windowHandleUtility;
 
 public class TC_13_Verify_Valid_Pincode_Message extends BaseClass {
@@ -28,7 +28,7 @@ public class TC_13_Verify_Valid_Pincode_Message extends BaseClass {
     public void verifyValidPincodeMessage() {
 
         // Step 1: Search product
-        hp.SearchProduct("Sofa");
+        hp.searchProduct("Sofa");
 
         // Step 2: Open product details
         sp.clickFirstProduct();

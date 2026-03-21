@@ -135,6 +135,11 @@ public class SearchPage extends basePage {
 	public String getFirstProductPrice() {
 	    return wait.until(ExpectedConditions.visibilityOf(firstProductprice)).getText();
 	}
+
+	public String getProductPriceByIndex() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

@@ -1,4 +1,4 @@
-package PageObjects;
+ package PageObjects;
 
 import java.time.Duration;
 import java.util.List;
@@ -214,9 +214,9 @@ public class SearchPage extends basePage {
 	        return wait.until(ExpectedConditions.visibilityOf(firstProductBrandname)).getText();
 	    }
 
-	    public String getFirstProductPrice() {
-	        return wait.until(ExpectedConditions.visibilityOf(firstProductprice)).getText();
-	    }
+//	    public String getFirstProductPrice() {
+//	        return wait.until(ExpectedConditions.visibilityOf(firstProductprice)).getText();
+//	    }
 
 	    // ================== Wait for Page Load ==================
 	    public void waitForPageLoad() {
@@ -228,5 +228,15 @@ public class SearchPage extends basePage {
 	        By firstProductLocator = By.xpath("//div[@class='image-cls-container ng-star-inserted']");
 	        wait.until(ExpectedConditions.visibilityOfElementLocated(firstProductLocator));
 	    }
+	    public String getProductPriceByIndex(int index) {
+	        if (index < 0 || index >= firstProduct.size()) {
+	            System.out.println("Invalid index: " + index + ". List size: " + firstProduct.size());
+	            return "";
+	        }
+	        // Assuming each product card has a child element for price
+	        String price = firstProduct.get(index).findElement(By.cssSelector(".product-price")).getText();
+	        System.out.println("Product price at index " + index + ": " + price);
+	        return price;
+	    }
 
-}
+}  

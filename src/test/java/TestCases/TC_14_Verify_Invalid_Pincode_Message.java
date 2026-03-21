@@ -6,20 +6,20 @@ import org.testng.annotations.Test;
 
 import PageObjects.DetailsPageObject;
 import PageObjects.HomePage;
-import PageObjects.SearchPage;
+import PageObjects.SearchPage2;
 import Utilities.windowHandleUtility;
 
 public class TC_14_Verify_Invalid_Pincode_Message extends BaseClass {
 
     DetailsPageObject dp;
-    SearchPage sp;
+    SearchPage2 sp;
     HomePage hp;
     windowHandleUtility who;
 
     @BeforeMethod
     public void init() {
         dp = new DetailsPageObject(driver);
-        sp = new SearchPage(driver);
+        sp = new SearchPage2(driver);
         hp = new HomePage(driver);
         who = new windowHandleUtility(driver);
     }
@@ -31,7 +31,7 @@ public class TC_14_Verify_Invalid_Pincode_Message extends BaseClass {
         hp.searchProduct("Sofa");
 
         // Step 2: Open product details
-        sp.clickFirstProduct();
+        sp.clickProductByIndex(3);
         who.switchToNewWindow();
 
         // Step 3: Enter invalid pincode

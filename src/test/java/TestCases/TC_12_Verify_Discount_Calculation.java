@@ -6,20 +6,20 @@ import org.testng.annotations.Test;
 
 import PageObjects.DetailsPageObject;
 import PageObjects.HomePage;
-import PageObjects.SearchPage;
+import PageObjects.SearchPage2;
 import Utilities.windowHandleUtility;
 
 public class TC_12_Verify_Discount_Calculation extends BaseClass {
 
     DetailsPageObject dp;
-    SearchPage sp;
+    SearchPage2 sp;
     HomePage hp;
     windowHandleUtility who;
 
     @BeforeMethod
     public void init() {
         dp = new DetailsPageObject(driver);
-        sp = new SearchPage(driver);
+        sp = new SearchPage2(driver);
         hp = new HomePage(driver);
         who = new windowHandleUtility(driver);
     }
@@ -31,7 +31,7 @@ public class TC_12_Verify_Discount_Calculation extends BaseClass {
         hp.searchProduct("Sofa");
 
         
-        sp.clickFirstProduct();
+        sp.clickProductByIndex(2);
 
        
         who.switchToNewWindow();

@@ -32,9 +32,7 @@ public class DetailsPageObject extends BaseClass {
 
         search.clickProductByIndex(indexToClick);
 
-        String productName = productDetails.getBrandNameHeader();
-        String productPrice = productDetails.getPrice();
-        boolean priceVisible = productPrice != null && !productPrice.isEmpty();
+
 
         System.out.println("Product Name: " + productName);
         System.out.println("Product Price: " + productPrice);
@@ -47,4 +45,4 @@ public class DetailsPageObject extends BaseClass {
             Assert.assertTrue(productDetails.discountCalculation(), "Discount calculation mismatch!");
         }
     }
-}
+

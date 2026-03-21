@@ -244,4 +244,4 @@ public class SearchPage extends basePage {
 	        return firstProductprice;
 	    }
 
-}  
+

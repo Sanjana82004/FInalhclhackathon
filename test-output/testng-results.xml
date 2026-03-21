@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- TestCases.TC_01_VerifyHomePage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

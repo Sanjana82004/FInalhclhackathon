@@ -19,7 +19,7 @@ public class BaseClass {
 		 
 		  driver.manage().deleteAllCookies();	
 		    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		    driver.get(" "); 
+		    driver.get("www.pepperfry.com"); 
 		    driver.manage().window().maximize();
 	  }
 	   @AfterClass

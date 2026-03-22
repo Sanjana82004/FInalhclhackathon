@@ -1,58 +1,90 @@
 package PageObjects;
 
-package PageObjects;
-
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SearchPage2 extends basePage {
 
-    // Constructor
     public SearchPage2(WebDriver driver) {
         super(driver);
     }
 
-    // ================== Product Locators ==================
+    // ✅ Single locator for product card (parent)
+    private By productCards = By.xpath("//img[@loading='lazy']");
 
-    @FindBy(xpath = "//div[@class='image-cls-container ng-star-inserted']")
-    List<WebElement> productCards;
+    // ================== Core Helper ==================
 
-    @FindBy(xpath = "//h2[@class='product-name color-tertiary text-md font-medium ng-star-inserted']")
-    List<WebElement> productNames;
+    private WebElement getProductCard(int index) {
+        List<WebElement> cards = wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(productCards)
+        );
 
-    @FindBy(xpath = "//span[@class='product-offer-price font-bold text-xl ng-star-inserted']")
-    List<WebElement> productPrices;
+        if (index < 0 || index >= cards.size()) {
+            throw new IllegalArgumentException("Invalid index: " + index);
+        }
+
+        WebElement card = cards.get(index);
+
+        // ✅ Scroll happens ONCE here
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].scrollIntoView({block: 'center'});", card);
+
+        wait.until(ExpectedConditions.visibilityOf(card));
+
+        return card;
+    }
 
     // ================== Actions ==================
 
-    public void clickProductByIndex(int index) {
-        if (index < 0 || index >= productCards.size()) {
-            throw new IllegalArgumentException("Invalid product index: " + index);
-        }
-        wait.until(ExpectedConditions.elementToBeClickable(productCards.get(index))).click();
-    }
-
     public String getProductNameByIndex(int index) {
-        if (index < 0 || index >= productNames.size()) {
-            throw new IllegalArgumentException("Invalid product index: " + index);
+        try {
+            WebElement card = getProductCard(index);
+
+            WebElement name = card.findElement(
+                    By.xpath("//h2[@class='product-name color-tertiary text-md font-medium ng-star-inserted']")
+            );
+
+            return name.getText().trim();
+
+        } catch (StaleElementReferenceException e) {
+            return getProductNameByIndex(index); // retry
         }
-        return wait.until(ExpectedConditions.visibilityOf(productNames.get(index))).getText();
     }
 
     public String getProductPriceByIndex(int index) {
-        if (index < 0 || index >= productPrices.size()) {
-            throw new IllegalArgumentException("Invalid product index: " + index);
+        try {
+            WebElement card = getProductCard(index);
+
+            WebElement price = card.findElement(
+                    By.xpath("//span[@class='product-offer-price font-bold text-xl ng-star-inserted']")
+            );
+
+            return price.getText().trim();
+
+        } catch (StaleElementReferenceException e) {
+            return getProductPriceByIndex(index); // retry
         }
-        return wait.until(ExpectedConditions.visibilityOf(productPrices.get(index))).getText();
+    }
+
+    public void clickProductByIndex(int index) {
+        try {
+            WebElement card = getProductCard(index);
+
+            WebElement clickable = card.findElement(By.xpath(".//a"));
+
+            wait.until(ExpectedConditions.elementToBeClickable(clickable)).click();
+
+        } catch (Exception e) {
+            WebElement card = getProductCard(index);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", card);
+        }
     }
 
     // ================== Utility ==================
 
     public int getTotalProducts() {
-        return productCards.size();
+        return driver.findElements(productCards).size();
     }
 }

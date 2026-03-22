@@ -35,7 +35,7 @@ public class TC_13_Verify_Valid_Pincode_Message extends BaseClass {
         who.switchToNewWindow();
 
         // Step 3: Enter valid pincode
-        dp.enterPincode("411033");   // Example valid pincode
+        dp.enterPincode("411033");   
         dp.clickLocate();
 
         // Step 4: Validate message

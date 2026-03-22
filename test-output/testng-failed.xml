@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCases.TC_11_Verify_Product_Details_Consistency">
+      <class name="TestCases.TC_12_Verify_Discount_Calculation">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="verifyProductDetailsConsistency"/>
           <include name="init"/>
+          <include name="verifyDiscountCalculation"/>
         </methods>
-      </class> <!-- TestCases.TC_11_Verify_Product_Details_Consistency -->
+      </class> <!-- TestCases.TC_12_Verify_Discount_Calculation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

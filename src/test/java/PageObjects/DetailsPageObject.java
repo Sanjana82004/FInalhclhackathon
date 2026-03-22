@@ -71,7 +71,7 @@ public class DetailsPageObject  extends basePage{
     
     @FindBy(xpath = "//span[@class='vip-service-delivery-text text-sm color-primary font-medium']")
     WebElement validPincodeMessage;
-
+    
     
     // Get Brand Name
     public String getBrandNameTop() {

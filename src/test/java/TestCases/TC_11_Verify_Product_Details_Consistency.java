@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import PageObjects.DetailsPageObject;
 import PageObjects.HomePage;
-import PageObjects.SearchPage;
+
 import PageObjects.SearchPage2;
 import Utilities.windowHandleUtility;
 

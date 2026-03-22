@@ -1,7 +1,14 @@
 package TestCases;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -10,7 +17,7 @@ import org.testng.annotations.BeforeClass;
 public class BaseClass {
 
 	
-	public WebDriver driver;
+	 public WebDriver driver;
 	  
 	  
 	  @BeforeClass
@@ -26,4 +33,17 @@ public class BaseClass {
 	  public void tearDown() {
 		  driver.quit();
 	  }
+	   
+	   
+	   public String captureScreen(String tname) throws IOException{
+		      String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date(0));
+		      TakesScreenshot takeScreenshot = (TakesScreenshot) driver;
+		      File sourceFile = takeScreenshot.getScreenshotAs(OutputType.FILE);
+		      
+		      String targetFilePath = System.getProperty("user.dir") + "\\screenshots\\"+tname+"_"+timeStamp+".png";
+		      File targetFile = new File(targetFilePath);
+		      FileUtils.copyFile(sourceFile, targetFile);
+		      
+		      return targetFilePath;
+		      }
 }

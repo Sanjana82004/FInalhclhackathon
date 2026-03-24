@@ -3,24 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-
-          <include name="tearDown"/>
-          <include name="verifyProductDetailsConsistency"/>
-          <include name="init"/>
-        </methods>
-
-=======
-      <class name="TestCases.TC_07_ProductAddedToCart">
+      <class name="TestCases.TC_10_DiscountValidationTest">
         <methods>
           <include name="setup"/>
           <include name="tearDown"/>
-          <include name="verifyProductAddedToCart"/>
-          <include name="verifyQuantityUpdate"/>
-          <include name="setupTest"/>
+          <include name="verifyDiscountCalculation"/>
         </methods>
-      </class> <!-- TestCases.TC_07_ProductAddedToCart -->
->>>>>>> sanjana
+      </class> <!-- TestCases.TC_10_DiscountValidationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -9,6 +9,7 @@ import PageObjects.DetailsPageObject;
 import PageObjects.HomePage;
 
 import PageObjects.SearchPage2;
+import PageObjects.cartPage;
 
 
 public class TC_07_ProductAddedToCart extends BaseClass {
@@ -17,7 +18,7 @@ public class TC_07_ProductAddedToCart extends BaseClass {
     HomePage home;
     SearchPage2 search;
     DetailsPageObject details;
-    CartPage cart;
+    cartPage cart;
     
     
     @BeforeMethod
@@ -26,7 +27,7 @@ public class TC_07_ProductAddedToCart extends BaseClass {
         home = new HomePage(driver);
         search = new SearchPage2(driver);
         details = new DetailsPageObject(driver);
-        cart = new CartPage(driver);
+        cart = new cartPage(driver);
         
    
     }
@@ -75,7 +76,7 @@ public class TC_07_ProductAddedToCart extends BaseClass {
     
     @Test(priority = 2)
     public void verifyQuantityUpdate() {
-        CartPage cart = new CartPage(driver);
+        cartPage cart = new cartPage(driver);
 
         
         String initialTotal = cart.getTotalPriceText();

@@ -10,9 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartPage extends basePage {
+public class cartPage extends basePage {
 
-	public CartPage(WebDriver driver) {
+	public cartPage(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
 		

@@ -25,7 +25,7 @@ public class CartPage extends basePage {
     @FindBy(xpath = "//span[@data-test='cardPriceItmPrice']")
     private List<WebElement> allProductPrices;
     
-    @FindBy(xpath = "//div[@class='cart-item-container']") 
+    @FindBy(xpath = "//section[@class='ck-product-card ng-star-inserted']") 
     private List<WebElement> productCards;
     
     @FindBy(xpath = "//div[contains(@class,'quantity-dropdown')]//button")
@@ -46,19 +46,21 @@ public class CartPage extends basePage {
     @FindBy(xpath = "//div[contains(@class, 'modal') or contains(@class, 'pop-up')]")
     private List<WebElement> allPopupContainers;
     
+    @FindBy(xpath = "//div[contains(@class, 'cart-you-pay')]//span[@class='heading-lg']")
+    private WebElement totalPrice;
+
+    
     public int getCartItemCount() {
         return productCards.size();
     }
 
     
-    public String getProductNameByIndex(int index) {
-        return allProductNames.get(index).getText().trim();
-    }
     
-    public String getProductPriceByIndex(int index) {
+    
+   /* public String getProductPriceByIndex(int index) {
         return allProductPrices.get(index).getText().trim();
-    }
-    String getProductName(int index) {
+    } */
+    public String getProductName(int index) {
         return allProductNames.get(index).getText().trim();
     }
     
@@ -67,10 +69,7 @@ public class CartPage extends basePage {
         return allProductPrices.get(index).getText().trim();
     }
 	
-	@FindBy(xpath = "//div[contains(@class, 'cart-you-pay')]//span[@class='heading-lg']")
-    private WebElement totalPrice;
-
-   
+	
     
     public String getTotalPriceText() {
         return totalPrice.getText().trim();
@@ -79,29 +78,27 @@ public class CartPage extends basePage {
 	
 
 	
-	public void selectQuantity(int productIndex, String qtyValue) {
-	  
-	    qtyDropdownButtons.get(productIndex).click();
+    public void selectQuantity(int productIndex, String qtyValue) {
 
-	   
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        
+        qtyDropdownButtons.get(productIndex).click();
 
-	  
-	    String optionXpath = "//div[contains(@class, 'quantity-dropdown')]//li[normalize-space()='" + qtyValue + "']";
+       
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-	    try {
-	        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(optionXpath)));
-	        option.click();
-	    } catch (Exception e) {
-	      
-	        driver.findElement(By.xpath("(//*[text()='" + qtyValue + "'])[1]")).click();
-	    }
-	
-	
-	
-	
+       
+        String optionXpath = "//div[contains(@class, 'quantity-dropdown')]//li[normalize-space()='" + qtyValue + "']";
+
+
+        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(optionXpath)));
+        option.click();
+    }
+	public void clickRemoveProduct() {
+	    allPopupRemoveButtons.get(0).click();
 	}
 	
-	
+	public void confirmRemoval() {
+	    allPopupRemoveButtons.get(0).click();
+	}
 
 }
